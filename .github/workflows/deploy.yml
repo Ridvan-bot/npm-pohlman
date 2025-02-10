@@ -28,6 +28,7 @@ jobs:
     secrets:
       token: ${{ secrets.GH_TOKEN }}
       slack_webhook: ${{ secrets.SLACK_WEBHOOK }}
+      npm_token: ${{ secrets.NPM_TOKEN }}
   deploy:
      needs: execute-release
      runs-on: ubuntu-latest
