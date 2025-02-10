@@ -12,6 +12,11 @@ on:
         type: boolean
         default: false
         description: 'Enable semantic release'
+      npm_publish_enabled:
+        required: false
+        type: boolean
+        default: false
+        description: 'Enable npm publish'
     secrets:
       token:
         required: true
@@ -38,6 +43,7 @@ jobs:
     with:
       branches: "${{ inputs.branches }}"
       slack_enabled: "${{ inputs.slack_enabled }}"
+      npm_publish_enabled: "${{ inputs.npm_publish_enabled }}"
     secrets:
       token: ${{ secrets.GH_TOKEN }}
       slack_webhook: ${{ secrets.SLACK_WEBHOOK }}

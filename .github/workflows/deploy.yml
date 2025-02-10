@@ -25,6 +25,7 @@ jobs:
     with:
       branches: "${{ github.ref_name }}"
       slack_enabled: true
+      npm_publish_enabled: true
     secrets:
       token: ${{ secrets.GH_TOKEN }}
       slack_webhook: ${{ secrets.SLACK_WEBHOOK }}
