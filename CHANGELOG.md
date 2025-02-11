@@ -1,3 +1,9 @@
+## [1.5.0](https://github.com/Ridvan-bot/npm-pohlman/compare/v1.4.0...v1.5.0) (2025-02-11)
+
+### Bug Fixes
+
+* remove src from .npmignore to include source files in npm package ([2d05b56](https://github.com/Ridvan-bot/npm-pohlman/commit/2d05b5605eec3ce22c8893fbecafe215881b0e69))
+
 ## [1.4.0](https://github.com/Ridvan-bot/npm-pohlman/compare/v1.3.0...v1.4.0) (2025-02-11)
 
 ## [1.3.0](https://github.com/Ridvan-bot/npm-pohlman/compare/v1.2.1...v1.3.0) (2025-02-11)
