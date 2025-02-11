@@ -13,7 +13,7 @@
   "license": "ISC",
   "author": "Robin Pohlman",
   "type": "commonjs",
-  "main": "dist/index.js",
+  "main": "dist/bin/pohlman.js",
   "bin": {
     "pohlman": "./dist/bin/pohlman.js"
   },

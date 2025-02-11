@@ -1,9 +1,9 @@
+#!/usr/bin/env node
 
 import { execSync } from 'child_process';
 import * as packageJson from '../../package.json';
 
 const args: string[] = process.argv.slice(2);
-
 
 function checkGitInstalled() {
     try {
@@ -13,7 +13,6 @@ function checkGitInstalled() {
         process.exit(1);
     }
 }
-
 
 switch (args[0]) {
     case '-v':
@@ -43,13 +42,16 @@ For more information, visit https://github.com/Ridvan-bot/npm-pohlman`);
             console.error('Failed to reset local repository:', error);
         }
         break;
-    
     case 'new':
-        console.log('new project');
+        if (args[1] === 'project') {
+            console.log('new project');
+        } else {
+            console.log(`unknown option: ${args.join(' ')}`);
+            console.log('usage: pohlman [-v | --version] [-h | --help] [rebuild]');
+        }
         break;
-    
     default:
-        console.log(`unknown option: ${args[0]}`);
+        console.log(`unknown option: ${args.join(' ')}`);
         console.log('usage: pohlman [-v | --version] [-h | --help] [rebuild]');
         break;
 }
