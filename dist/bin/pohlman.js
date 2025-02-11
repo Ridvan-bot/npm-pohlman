@@ -42,6 +42,17 @@ switch (args[0]) {
     case '--version':
         console.log(`Version: ${packageJson.version}`);
         break;
+    case '-h':
+    case '--help':
+        console.log(`usage: pohlman [-v | --version] [-h | --help] [rebuild]
+
+These are common pohlman commands used in various situations:
+
+start a working area
+   rebuild   Reset local repository to match GitHub
+
+For more information, visit https://github.com/Ridvan-bot/npm-pohlman`);
+        break;
     case 'rebuild':
         try {
             console.log('Resetting local repository to match GitHub...');
@@ -56,6 +67,6 @@ switch (args[0]) {
         break;
     default:
         console.log(`unknown option: ${args[0]}`);
-        console.log('usage: pohlman [-v | --version] [rebuild]');
+        console.log('usage: pohlman [-v | --version] [-h | --help] [rebuild]');
         break;
 }
