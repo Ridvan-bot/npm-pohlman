@@ -1,4 +1,4 @@
-name: Push Npm Package
+name: Push Pohlman Npm Package
 
 on:
   push:
