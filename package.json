@@ -18,6 +18,7 @@
     "pohlman": "./dist/bin/pohlman.js"
   },
   "scripts": {
+    "preinstall": "npm run build",
     "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
