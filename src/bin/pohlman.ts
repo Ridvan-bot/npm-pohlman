@@ -4,6 +4,7 @@ import * as packageJson from '../../package.json';
 
 const args: string[] = process.argv.slice(2);
 
+
 function checkGitInstalled() {
     try {
         execSync('git --version', { stdio: 'ignore' });
@@ -12,6 +13,7 @@ function checkGitInstalled() {
         process.exit(1);
     }
 }
+
 
 switch (args[0]) {
     case '-v':
@@ -24,7 +26,7 @@ switch (args[0]) {
 
 These are common pohlman commands used in various situations:
 
-start a working area
+rebuild a working area
    rebuild   Reset local repository to match GitHub
 
 For more information, visit https://github.com/Ridvan-bot/npm-pohlman`);
@@ -41,6 +43,11 @@ For more information, visit https://github.com/Ridvan-bot/npm-pohlman`);
             console.error('Failed to reset local repository:', error);
         }
         break;
+    
+    case 'new':
+        console.log('new project');
+        break;
+    
     default:
         console.log(`unknown option: ${args[0]}`);
         console.log('usage: pohlman [-v | --version] [-h | --help] [rebuild]');
