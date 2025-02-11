@@ -1,6 +1,6 @@
 {
   "name": "pohlman",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "an npm package to make my life a little bit easier",
   "homepage": "https://github.com/Ridvan-bot/npm-pohlman#readme",
   "bugs": {
@@ -14,13 +14,13 @@
   "author": "Robin Pohlman",
   "type": "commonjs",
   "main": "dist/index.js",
-"bin": {
-  "pohlman": "./dist/bin/pohlman.js"
-},
-"scripts": {
-  "build": "tsc",
-  "test": "echo \"Error: no test specified\" && exit 1"
-},
+  "bin": {
+    "pohlman": "./dist/bin/pohlman.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
   "dependencies": {
     "@types/node": "^22.10.0",
     "conventional-changelog-conventionalcommits": "^8.0.0",
