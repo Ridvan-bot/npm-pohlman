@@ -19,7 +19,7 @@
   },
   "scripts": {
     "preinstall": "npm run build",
-    "build": "tsc",
+    "build": "tsc && node scripts/add-shebang.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
