@@ -2,7 +2,8 @@
 
 import { execSync } from 'child_process';
 import * as packageJson from '../../package.json';
-import { createDirectory, checkGitInstalled,createFile} from './utils/utils';
+import { createDirectory, checkGitInstalled, createFile, readTemplate} from './utils/utils';
+import path from 'path';
 
 const args: string[] = process.argv.slice(2);
 
@@ -51,11 +52,9 @@ For more information, visit https://github.com/Ridvan-bot/npm-pohlman`);
             // create .gitub/workflows folder
             createDirectory('.github/workflows');
             // create a CI/CD workflow file
-            createFile('.github/workflows/deploy.yml', 'name: Deploy\n\non: [push]\n\njobs:\n  build:\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v2\n      - name: Set up Node.js\n        uses: actions/setup-node@v2\n        with:\n          node-version: "14"\n      - run: npm install\n      - run: npm run build\n      - run: npm publish\n');
-            createFile('.github/workflows/test.yml', 'name: Test\n\non: [push]\n\njobs:\n  test:\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v2\n      - name: Set up Node.js\n        uses: actions/setup-node@v2\n        with:\n          node-version: "14"\n      - run: npm install\n      - run: npm test\n');
-            createFile('.github/workflows/lint.yml', 'name: Lint\n\non: [push]\n\njobs:\n  lint:\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v2\n      - name: Set up Node.js\n        uses: actions/setup-node@v2\n        with:\n          node-version: "14"\n      - run: npm install\n      - run: npm run lint\n');
-
-
+            createFile('.github/workflows/deploy.yml', readTemplate(path.join(__dirname, '../../templates/deploy.yml')));
+            createFile('.github/workflows/validate.yml', readTemplate(path.join(__dirname, '../../templates/validate.yml')));
+            createFile('.github/workflows/release.yml', readTemplate(path.join(__dirname, '../../templates/release.yml')));
 
             console.log('Backend project created successfully.');
         } else {

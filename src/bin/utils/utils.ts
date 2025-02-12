@@ -25,3 +25,8 @@ export const checkGitInstalled = () => {
         process.exit(1);
     }
 }
+
+
+export const readTemplate = (filePath: string): string => {
+    return fs.readFileSync(filePath, 'utf8');
+}
