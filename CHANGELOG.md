@@ -1,3 +1,9 @@
+## [1.6.1](https://github.com/Ridvan-bot/npm-pohlman/compare/v1.6.0...v1.6.1) (2025-02-12)
+
+### Bug Fixes
+
+* add shebang to generated binary and update build script to include it ([d1ca666](https://github.com/Ridvan-bot/npm-pohlman/commit/d1ca666e643402ed9ef5c217f278936844882277))
+
 ## [1.6.0](https://github.com/Ridvan-bot/npm-pohlman/compare/v1.5.0...v1.6.0) (2025-02-12)
 
 ## [1.5.0](https://github.com/Ridvan-bot/npm-pohlman/compare/v1.4.0...v1.5.0) (2025-02-11)
