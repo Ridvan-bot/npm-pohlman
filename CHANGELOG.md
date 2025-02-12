@@ -1,3 +1,5 @@
+## [1.6.0](https://github.com/Ridvan-bot/npm-pohlman/compare/v1.5.0...v1.6.0) (2025-02-12)
+
 ## [1.5.0](https://github.com/Ridvan-bot/npm-pohlman/compare/v1.4.0...v1.5.0) (2025-02-11)
 
 ### Bug Fixes
