@@ -15,7 +15,7 @@ switch (args[0]) {
         break;
     case '-h':
     case '--help':
-        console.log(`usage: pohlman [-v | --version] [-h | --help] [rebuild]
+        console.log(`usage: pohlman [-v | --version] [-h | --help] [rebuild] [new project]
 
 These are common pohlman commands used in various situations:
 
