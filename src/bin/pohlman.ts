@@ -2,17 +2,11 @@
 
 import { execSync } from 'child_process';
 import * as packageJson from '../../package.json';
+import { createDirectory, checkGitInstalled, createFile, readTemplate} from './utils/utils';
+import path from 'path';
 
 const args: string[] = process.argv.slice(2);
 
-function checkGitInstalled() {
-    try {
-        execSync('git --version', { stdio: 'ignore' });
-    } catch (error) {
-        console.error('Git is not installed. Please install Git to use the rebuild command.');
-        process.exit(1);
-    }
-}
 
 switch (args[0]) {
     case '-v':
@@ -21,7 +15,7 @@ switch (args[0]) {
         break;
     case '-h':
     case '--help':
-        console.log(`usage: pohlman [-v | --version] [-h | --help] [rebuild]
+        console.log(`usage: pohlman [-v | --version] [-h | --help] [rebuild] [new project]
 
 These are common pohlman commands used in various situations:
 
@@ -44,7 +38,25 @@ For more information, visit https://github.com/Ridvan-bot/npm-pohlman`);
         break;
     case 'new':
         if (args[1] === 'project') {
-            console.log('new project');
+            console.log('Creating a new backend project...');
+            execSync('npm init -y', { stdio: 'inherit' });
+            execSync('npm install typescript --save-dev', { stdio: 'inherit' });
+            execSync('npm install @types/node --save-dev', { stdio: 'inherit' });
+            execSync('npx tsc --init', { stdio: 'inherit' });
+            execSync('npm install ts-node --save-dev', { stdio: 'inherit' });
+            // create a gitignore file
+            execSync('echo dist/ >> .gitignore', { stdio: 'inherit' });
+            execSync('echo .env >> .gitignore', { stdio: 'inherit' });
+            execSync('echo node_modules/ >> .gitignore', { stdio: 'inherit' });
+            execSync('echo package-lock.json >> .gitignore', { stdio: 'inherit' });
+            // create .gitub/workflows folder
+            createDirectory('.github/workflows');
+            // create a CI/CD workflow file
+            createFile('.github/workflows/deploy.yml', readTemplate(path.join(__dirname, '../../templates/deploy.yml')));
+            createFile('.github/workflows/validate.yml', readTemplate(path.join(__dirname, '../../templates/validate.yml')));
+            createFile('.github/workflows/release.yml', readTemplate(path.join(__dirname, '../../templates/release.yml')));
+
+            console.log('Backend project created successfully.');
         } else {
             console.log(`unknown option: ${args.join(' ')}`);
             console.log('usage: pohlman [-v | --version] [-h | --help] [rebuild]');
